@@ -72,7 +72,7 @@ module Primitives =
 module internal Helpers =
 
   let validUint (b : uint32) =
-    if b > uint32(System.Int32.MaxValue) then
+    if b > uint32(System.Int32.MaxValue) && b <> System.UInt32.MaxValue (* i.e. -1 *) then
       failwithf "too large start %A, gt int32 max val" b
     else int b
 
